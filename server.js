@@ -52,12 +52,10 @@ app.post("/login",login);
   );
   
 app.listen(PORT, async () =>{
-
-    try {
+    try{
         await connect()
-        console.log(`listen on port ${PORT}`)
-        
-    } catch (error) {
+        console.log(`listen on port ${PORT}`)      
+    } catch(error){
         console.log('error:', error.message)
     }
 })
