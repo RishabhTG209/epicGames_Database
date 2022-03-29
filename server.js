@@ -8,6 +8,7 @@ require('dotenv').config();
 const PORT = process.env.PORT || 3125;
 app.use(body_parser.json())
 
+
 app.use(cors())
 
 const gameSchema= require("./src/controllers/game.controller")
