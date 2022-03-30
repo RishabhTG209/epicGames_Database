@@ -39,7 +39,7 @@
             color: #32c8db;
             text-align: center;
         }
-        input:nth-of-type(7){
+        input:nth-of-type(8){
             width: 93%;
             height: 40px;
             border-radius: 10px;
@@ -70,6 +70,8 @@
         <br>
         <input type="text" placeholder="Enter image url" id="image">
         <br>
+        <input type="text" placeholder="Enter video url" id="video">
+        <br>
         <input type="submit" placeholder="submit form">
     </form>
 </body>
@@ -87,7 +89,8 @@ async function getdetails(event){
             price:document.getElementById("price").value,
             description:document.getElementById("description").value,
             logo:document.getElementById("gamelogo").value,
-            image:document.getElementById("image").value
+            image:document.getElementById("image").value,
+            videoUrl:document.getElementById("video").value
         }
         gamedata = JSON.stringify(gamedata)
         console.log(gamedata)

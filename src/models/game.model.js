@@ -7,8 +7,8 @@ const gameSchema = new mongoose.Schema({
     price: {type: Number, required: true},
     description: {type: String, required: true},
     logo: {type: String, required: true},
-    image: {type: String, required: true}
-    // Video URL
+    image: {type: String, required: true},
+    videoUrl: {type: String, required: true}
 })
 
 module.exports = mongoose.model('game',gameSchema)
