@@ -52,21 +52,31 @@ router.post("/additem/:user_id", async (req,res)=>{
 });
 
 // Delete from cart
-router.delete("/:game_id" ,async (req,res)=>{
+// router.delete("/:game_id" ,async (req,res)=>{
 
+//     try{
+
+//         let game_id = req.params.game_id;
+//         let user_id =req.query.user_id;
+//         let item =  await cart.findOne({"game_id":game_id ,"user_id":user_id});
+
+//         await cart.findByIdAndDelete(item._id);
+
+//         res.end();
+//     }catch(err){
+//         res.send("error while deleting item",err.message)
+//     }
+
+// })
+
+router.delete("/:id",async (req,res)=>{
     try{
-
-        let game_id = req.params.product_id;
-        let user_id =req.body.user_id;
-        let item =  await cart.findOne({"game_id":game_id ,"user_id":user_id});
-
-        await cart.findByIdAndDelete(item._id);
-
-        res.end();
-    }catch(err){
-        res.send("error while deleting item",err.message)
+        const game= await cart.findByIdAndDelete(req.params.id).lean().exec()
+        return res.send(game);
     }
-
+    catch(err){
+        console.log(res);
+    }
 })
 
 module.exports=router;
