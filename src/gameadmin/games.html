@@ -39,7 +39,7 @@
             color: #32c8db;
             text-align: center;
         }
-        input:nth-of-type(8){
+        input:nth-of-type(6){
             width: 93%;
             height: 40px;
             border-radius: 10px;
@@ -57,7 +57,7 @@
         <img src="https://www.gizmochina.com/wp-content/uploads/2021/04/Epic-Games-Logo.jpeg" alt="">
     </div>
     <form id="fruits">
-        <h4>Games</h4>
+        <!-- <h4>Games</h4>
         <input type="text" placeholder="Enter title" id="title">
         <br>
         <input type="number" placeholder="Enter discounted" id="discount">
@@ -72,6 +72,20 @@
         <br>
         <input type="text" placeholder="Enter video url" id="video">
         <br>
+        <input type="submit" placeholder="submit form"> -->
+
+        <!-- USERS -->
+        <h4>Games</h4>
+        <input type="text" placeholder="Enter First" id="title">
+        <br>
+        <input type="text" placeholder="Enter last" id="discount">
+        <br>
+        <input type="text" placeholder="Enter display" id="price">
+        <br>
+        <input type="text" placeholder="Enter email" id="description">
+        <br>
+        <input type="text" placeholder="Enter password" id="gamelogo">
+        <br>
         <input type="submit" placeholder="submit form">
     </form>
 </body>
@@ -83,21 +97,28 @@ document.getElementById("fruits").addEventListener("submit", getdetails);
 async function getdetails(event){
         try{
             event.preventDefault()
+            // var gamedata = {
+            // title:document.getElementById("title").value,
+            // discount:document.getElementById("discount").value,
+            // price:document.getElementById("price").value,
+            // description:document.getElementById("description").value,
+            // logo:document.getElementById("gamelogo").value,
+            // image:document.getElementById("image").value,
+            // videoUrl:document.getElementById("video").value
+
             var gamedata = {
-            title:document.getElementById("title").value,
-            discount:document.getElementById("discount").value,
-            price:document.getElementById("price").value,
-            description:document.getElementById("description").value,
-            logo:document.getElementById("gamelogo").value,
-            image:document.getElementById("image").value,
-            videoUrl:document.getElementById("video").value
+            first_name:document.getElementById("title").value,
+            last_name:document.getElementById("discount").value,
+            display_name:document.getElementById("price").value,
+            email:document.getElementById("description").value,
+            password:document.getElementById("gamelogo").value
         }
         gamedata = JSON.stringify(gamedata)
         console.log(gamedata)
         }catch(err){
             console.log(err)
         }
-            let url = `http://localhost:3125/games`
+            let url = `https://quiet-fortress-03621.herokuapp.com/register`
 
         let response = await fetch(url,{
             method:"POST",
