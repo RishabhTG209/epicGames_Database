@@ -28,6 +28,23 @@ router.get("/",async(req,res)=>{
     }
 })
 
+// GET ALL WITH PAGINATION
+router.get("/pagination", async (req, res) => {
+    try {
+      const page = req.query.page;
+      const size = req.query.size;
+      const games = await Game.find() // 30 documents
+        .skip((page - 1) * size) // page 1 first 15 documents
+        .limit(size)
+        .lean()
+        .exec();
+  
+      return res.send(games);
+    } catch (err) {
+      return res.status(500).send({ message: err.message });
+    }
+  });
+
 // Get Particulaar
 router.get("/:id",async (req,res)=>{
     try{
